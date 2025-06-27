@@ -100,7 +100,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
         endGame();
       } else {
         eliminatePlayer();
-        setMessage(`&{players[currentPlayer].name} foi eliminado`);
+        setMessage()
       }
     } else if (newPlayerSequence.length === sequence.length) {
       // Jogador completou a sequência
@@ -110,7 +110,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
         } else {
           nextPlayer();
         }
-      }, 1000);
+      }, 500);
     }
   };
 
