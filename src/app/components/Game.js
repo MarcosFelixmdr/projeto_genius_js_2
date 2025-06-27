@@ -28,8 +28,8 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
     }
   }, []);
 
-  const playSound = (color, duration = 0.3) => {
-    if (!audioContextRef.current) return;
+  const playSound = (color, duration = 0.4) => {
+    if (!audioContextRef.current) return;   
 
     const oscillator = audioContextRef.current.createOscillator();
     const gainNode = audioContextRef.current.createGain();
@@ -61,7 +61,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
     
     // Aumentar dificuldade a cada 3 rodadas
     if (round % 3 === 0) {
-      setSpeed(prev => Math.max(300, prev - 150));
+      setSpeed(prev => Math.max(300, prev - 250));
     }
     
     showSequence(newSequence);

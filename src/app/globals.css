@@ -316,7 +316,7 @@ body {
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 
 .controls {
@@ -327,7 +327,7 @@ body {
 }
 
 .level-display {
-  margin-bottom: 8px;
+  margin-bottom: 1px;
 }
 
 .level-bars {
@@ -367,17 +367,23 @@ body {
 }
 
 .yellow-btn {
+  height: 25px;
+  width: 45px;
   background: #FFEB3B;
   color: #333;
 }
 
 .red-btn {
+  height: 25px;
+  width: 45px;
   background: #f44336;
   color: white;
 }
 
 .power-section {
-  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1px;
 }
 
 .power-slider {
@@ -469,7 +475,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .clear-btn:hover {
