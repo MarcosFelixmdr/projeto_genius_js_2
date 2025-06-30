@@ -13,7 +13,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [activePlayers, setActivePlayers] = useState(config.players.map(name => ({ name, active: true })));
-  const [speed, setSpeed] = useState(600); // velocidade inicial
+  const [speed, setSpeed] = useState(500); // velocidade inicial
 
   const audioContextRef = useRef(null);
   const gameContainerRef = useRef(null);
@@ -148,7 +148,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
     const currentActiveIndex = activePlayers.filter((p, i) => i <= currentPlayer && p.active).length;
     
     if (currentActiveIndex === activeCount) {
-      setTimeout(() => nextRound(), 1000);
+      setTimeout(() => nextRound(), 500);
     }
   };
 
@@ -178,7 +178,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
         <div className="game-info">
           <div className="score">Pontuação: {score}</div>
           <div className="round">Rodada: {round}</div>
-          <div className="speed">Velocidade: {((1000 - speed) / 100 + 1).toFixed(1)}x</div>
+          <div className="speed">Velocidade: {((500 - speed) / 100 + 1).toFixed(1)}x</div>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function Menu({ onStartGame, onShowRanking }) {
   const [isSinglePlayer, setIsSinglePlayer] = useState(true);
+  const [isMultiplayer, setIsMultiplayer] = useState (true);
   const [numPlayers, setNumPlayers] = useState(1);
   const [playerNames, setPlayerNames] = useState(['']);
 
@@ -64,7 +65,7 @@ export default function Menu({ onStartGame, onShowRanking }) {
           </div>
         </div>
 
-        {!isSinglePlayer && (
+        {isMultiplayer && (
           <div className="menu-section">
             <h2>Número de Jogadores</h2>
             <div className="player-count-buttons">

@@ -13,18 +13,6 @@ export default function Home() {
     numPlayers: 1
   });
 
-  /*setTimeout(() => {
-          let next = currentPlayer;
-          if (mode === 'Multiplayer') {
-            next = getNextPlayer(currentPlayer, eliminated);
-            setCurrentPlayer(next);
-          }
-          setTimeout(() => {
-            setSequence(prev => [...prev, COLORS[Math.floor(Math.random() * 4)]]);
-            setAwaitingNextSequence(false);
-          }, 300);
-        }, 500);*/
-
   const startGame = (config) => {
     setGameConfig(config);
     setGameState('game');
