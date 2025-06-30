@@ -65,7 +65,7 @@ export default function Menu({ onStartGame, onShowRanking }) {
           </div>
         </div>
 
-        {isMultiplayer && (
+        {!isSinglePlayer && (
           <div className="menu-section">
             <h2>Número de Jogadores</h2>
             <div className="player-count-buttons">
