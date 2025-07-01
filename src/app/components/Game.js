@@ -18,7 +18,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
       roundsCompleted: 0,
     }))
   );
-  const [speed, setSpeed] = useState(600);
+  const [speed, setSpeed] = useState(500);
   const [eliminatedMessage, setEliminatedMessage] = useState('');
   const [showEliminatedMessage, setShowEliminatedMessage] = useState(false);
   const [winnerMessage, setWinnerMessage] = useState('');
@@ -40,7 +40,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
     }
   }, []);
 
-  const playSound = (color, duration = 0.4) => {
+  const playSound = (color, duration = 0.3) => {
     if (!audioContextRef.current) return;
     const oscillator = audioContextRef.current.createOscillator();
     const gainNode = audioContextRef.current.createGain();
