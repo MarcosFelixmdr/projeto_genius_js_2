@@ -13,7 +13,7 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [isShowingSequence, setIsShowingSequence] = useState(false);
   const [activeColor, setActiveColor] = useState(null);
-  const [round, setRound] = useState(1);
+  const [round, setRound] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [activePlayers, setActivePlayers] = useState(
@@ -102,7 +102,6 @@ export default function Game({ config, onEndGame, onBackToMenu }) {
           )
         );
         setTimeout(() => nextRound(), 500);
-        setRound((prev) => prev + 1);
       } else {
         const newScore = activePlayers[currentPlayer].score + sequence.length * 10;
         setActivePlayers((prev) =>
