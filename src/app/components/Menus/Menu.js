@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-
+import MenuButton from './MenuButton';
+import MenuPlayersInput from './MenuPlayersInput';
 export default function Menu({ onStartGame, onShowRanking }) {
   const [isSinglePlayer, setIsSinglePlayer] = useState(true);
   /*const [isMultiplayer, setIsMultiplayer] = useState (true);*/
@@ -82,31 +83,17 @@ export default function Menu({ onStartGame, onShowRanking }) {
           </div>
         )}
 
-        <div className="menu-section">
-          <h2>Nome dos Jogadores</h2>
-          <div className="player-inputs">
-            {Array(numPlayers).fill(0).map((_, index) => (
-              <input
-                key={index}
-                type="text"
-                placeholder={`Jogador ${index + 1}`}
-                value={playerNames[index] || ''}
-                onChange={(e) => handlePlayerNameChange(index, e.target.value)}
-                className="player-input"
-                maxLength="15"
-              />
-            ))}
-          </div>
-        </div>
+        <MenuPlayersInput
+          numPlayers={numPlayers}
+          playerNames={playerNames}
+          onChangeName={handlePlayerNameChange}
+        />
 
-        <div className="menu-buttons">
-          <button className="start-btn" onClick={handleStartGame}>
-            INICIAR JOGO
-          </button>
-          <button className="ranking-btn" onClick={onShowRanking}>
-            VER RANKING
-          </button>
-        </div>
+        <MenuButton 
+          onStartGame={handleStartGame} 
+          onShowRanking={onShowRanking} 
+        />
+
       </div>
     </div>
   );
