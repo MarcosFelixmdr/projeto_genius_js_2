@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Menu from './components/Menu';
-import Game from './components/Game';
+import Game from './components/Game/Game';
 import Ranking from './components/Ranking';
 import './globals.css';
 
