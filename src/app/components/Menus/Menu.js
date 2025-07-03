@@ -5,7 +5,7 @@ import MenuButton from './MenuButton';
 import MenuPlayersInput from './MenuPlayersInput';
 export default function Menu({ onStartGame, onShowRanking }) {
   const [isSinglePlayer, setIsSinglePlayer] = useState(true);
-  /*const [isMultiplayer, setIsMultiplayer] = useState (true);*/
+  /*const [isMultiplayer, setIsMultiplayer] = useState (true); commmit teste*/ 
   const [numPlayers, setNumPlayers] = useState(1);
   const [playerNames, setPlayerNames] = useState(['']);
 
