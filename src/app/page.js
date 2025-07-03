@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Menu from './components/Menu';
+import Menu from './components/Menus/Menu';
 import Game from './components/Game/Game';
-import Ranking from './components/Ranking';
+import Ranking from './components/Ranking/Ranking';
 import './globals.css';
 
 export default function Home() {

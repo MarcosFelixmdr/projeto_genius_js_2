@@ -2,8 +2,8 @@
 import { useRef } from 'react';
 import GameHeader from './GameHeader';
 import PlayerInfo from '../Player/PlayerInfo';
-import StartScreen from '../StartScreen';
-import GeniusBoard from '../GeniusBoard';
+import StartScreen from '../Sections/StartScreen';
+import GeniusBoard from '../Sections/GeniusBoard';
 import GameMessages from './GameMessages';
 import useGameLogic from './GameLogic';
 import usePlayerElimination from '../Player/PlayerElimination';

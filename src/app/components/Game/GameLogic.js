@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useAudio from '../useAudio';
+import useAudio from '../Audios/useAudio';
 
 export default function GameLogic(config, onEndGame) {
   const [sequence, setSequence] = useState([]);
