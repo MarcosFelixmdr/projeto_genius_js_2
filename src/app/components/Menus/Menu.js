@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import MenuButton from './MenuButton';
 import MenuPlayersInput from './MenuPlayersInput';
+import MenuSingle from './MenuSingle';
 export default function Menu({ onStartGame, onShowRanking }) {
   const [isSinglePlayer, setIsSinglePlayer] = useState(true);
   /*const [isMultiplayer, setIsMultiplayer] = useState (true); commmit teste*/ 
@@ -66,22 +67,11 @@ export default function Menu({ onStartGame, onShowRanking }) {
           </div>
         </div>
 
-        {!isSinglePlayer && (
-          <div className="menu-section">
-            <h2>Número de Jogadores</h2>
-            <div className="player-count-buttons">
-              {[2, 3, 4].map(count => (
-                <button
-                  key={count}
-                  className={`count-btn ${numPlayers === count ? 'active' : ''}`}
-                  onClick={() => handlePlayerCountChange(count)}
-                >
-                  {count}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        <MenuSingle
+          handlePlayerCountChange={handlePlayerCountChange}
+          numPlayers={numPlayers}
+          isSinglePlayer={isSinglePlayer}
+          />
 
         <MenuPlayersInput
           numPlayers={numPlayers}

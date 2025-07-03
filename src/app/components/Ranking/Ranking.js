@@ -22,7 +22,7 @@ export default function Ranking({ onBackToMenu }) {
       <div className="ranking-container">
         <div className="ranking-header">
           <button className="back-btn" onClick={onBackToMenu}>← MENU</button>
-          <h1>RANKING</h1>
+          <h1>RANKING 🏆</h1>
           <button className="clear-btn" onClick={clearRankings}>LIMPAR</button>
         </div>
 

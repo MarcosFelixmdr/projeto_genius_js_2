@@ -14,7 +14,7 @@ export default function GameMessages({
       {showEliminatedMessage && (
         <div className="game-over-overlay">
           <div className="game-over-message">
-            <h2>Jogador Eliminado!</h2>
+            <h2>Jogador Eliminado! 😥</h2>
             <div style={{ whiteSpace: 'pre-line', lineHeight: '1.5' }}>
               {eliminatedMessage}
             </div>
@@ -38,7 +38,7 @@ export default function GameMessages({
       {gameOver && isSinglePlayer && (
         <div className="game-over-overlay">
           <div className="game-over-message">
-            <h2>Fim de Jogo!</h2>
+            <h2>Fim de Jogo! ❌</h2>
             <p>Pontuação Final: {currentScore}</p>
             <p>Rodadas Completadas: {round - 1}</p>
           </div>

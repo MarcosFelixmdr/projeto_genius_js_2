@@ -4,10 +4,10 @@ export default function MenuButtons({ onStartGame, onShowRanking }) {
   return (
     <div className="menu-buttons">
       <button className="start-btn" onClick={onStartGame}>
-        INICIAR JOGO
+        🎮  INICIAR JOGO
       </button>
       <button className="ranking-btn" onClick={onShowRanking}>
-        VER RANKING
+        🏆  VER RANKING
       </button>
     </div>
   );
