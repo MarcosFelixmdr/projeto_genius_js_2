@@ -12,7 +12,7 @@ export default function PlayerInfo({
         <div>
           <div
             className="current-player"
-            style={{ color: ' #2a5298', fontWeight: 'bold' }}
+            style={{ color: ' #fff', fontWeight: 'bold' }}
           >
             Vez de: {currentPlayerName}
           </div>
