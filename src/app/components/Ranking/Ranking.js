@@ -8,10 +8,15 @@ export default function Ranking({ onBackToMenu }) {
   useEffect(() => {
     const savedRankings = JSON.parse(localStorage.getItem('geniusRankings') || '[]');
     setRankings(savedRankings);
+
+    // Requisicao do tipo GET (all) para o banco de dados com order by points desc limit 10
   }, []);
 
   const clearRankings = () => {
     if (confirm('Tem certeza que deseja limpar todo o ranking?')) {
+
+      // Requisicao para o banco de dados do tipo delete all
+
       localStorage.removeItem('geniusRankings');
       setRankings([]);
     }

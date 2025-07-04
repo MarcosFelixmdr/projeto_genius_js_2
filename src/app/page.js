@@ -32,6 +32,8 @@ export default function Home() {
     localStorage.setItem('geniusRankings', JSON.stringify(rankings.slice(0, 10)));
     
     setGameState('ranking');
+
+    // Requisicao do tipo POST para o banco de dados com os dados do jogador(points e name)
   };
 
   const goToMenu = () => {
