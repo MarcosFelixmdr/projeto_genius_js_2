@@ -4,7 +4,6 @@ import Menu from './components/Menus/Menu';
 import Game from './components/Game/Game';
 import Ranking from './components/Ranking/Ranking';
 import './globals.css';
-import api from '../api/ranking'
 
 export default function Home() {
   const [gameState, setGameState] = useState('menu'); // menu, game, ranking
@@ -19,19 +18,26 @@ export default function Home() {
     setGameState('game');
   };
 
-  const endGame = (score, playerName) => {
-    // Salvar pontuação no ranking
-    const rankings = JSON.parse(localStorage.getItem('geniusRankings') || '[]');
-    rankings.push({
-      name: playerName,
-      score: score,
-      date: new Date().toLocaleDateString(),
-      mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer'
-    });
-    rankings.sort((a, b) => b.score - a.score);
-    localStorage.setItem('geniusRankings', JSON.stringify(rankings.slice(0, 10)));
+  const endGame = async (score, playerName) => {
+    // // Salvar pontuação no ranking
+    // const rankings = JSON.parse(localStorage.getItem('geniusRankings') || '[]');
+    // rankings.push({
+    //   name: playerName,
+    //   score: score,
+    //   date: new Date().toLocaleDateString(),
+    //   mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer'
+    // });
+    // rankings.sort((a, b) => b.score - a.score);
+    // localStorage.setItem('geniusRankings', JSON.stringify(rankings.slice(0, 10)));
     
-    setGameState('ranking');
+    // setGameState('ranking');
+
+    await fetch('/api/registers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: playerName, points: score }),
+    });
+    
 
     // Requisicao do tipo POST para o banco de dados com os dados do jogador(points e name)
   };
