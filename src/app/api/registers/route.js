@@ -3,23 +3,18 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// export async function GET() {
-//   try {
-//     const registers = await prisma.registers.findMany({
-//       orderBy: { id: 'asc' },
-//     });
-//     return Response.json(registers);
-//   } catch (error) {
-//     console.error(error);
-//     return new Response('Erro ao buscar registros', { status: 500 });
-//   }
-// }
 
-// app/api/registers/route.js
 export async function GET() {
-  return Response.json({ message: 'API funcionando!' });
+  try {
+    const registers = await prisma.registers.findMany({
+      orderBy: { id: 'asc' },
+    });
+    return Response.json(registers);
+  } catch (error) {
+    console.error(error);
+    return new Response('Erro ao buscar registros', { status: 500 });
+  }
 }
-
 
 export async function POST(request) {
   try {
@@ -29,6 +24,8 @@ export async function POST(request) {
     const created = await prisma.registers.create({
       data: { name, points },
     });
+
+    
 
     return Response.json(created);
   } catch (error) {
