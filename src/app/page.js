@@ -4,6 +4,7 @@ import Menu from './components/Menus/Menu';
 import Game from './components/Game/Game';
 import Ranking from './components/Ranking/Ranking';
 import './globals.css';
+import api from '../api/ranking'
 
 export default function Home() {
   const [gameState, setGameState] = useState('menu'); // menu, game, ranking
