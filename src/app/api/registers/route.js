@@ -8,6 +8,7 @@ export async function GET() {
   try {
     const registers = await prisma.register.findMany({
       orderBy: { points: 'desc' },
+      take: 10, // Limita a 10 registros
     });
     return Response.json(registers);
   } catch (error) {
@@ -31,6 +32,15 @@ export async function POST(request) {
       data: { name, points, mode, date: new Date() }, // <-- salva data automaticamente
     });
 
+    await prisma.$executeRaw`
+      DELETE FROM "Register"
+      WHERE id NOT IN (
+        SELECT id FROM "Register"
+        ORDER BY points DESC
+        LIMIT 10
+      );
+    `;
+
     console.log('REGISTRO CRIADO:', created); // 👈 Debug do resultado
 
     return Response.json(created);
@@ -50,7 +60,7 @@ export async function DELETE(request) {
     }
 
     const deleted = await prisma.register.delete({
-      where: { id, points },
+      where: { id },
     });
 
     return Response.json(deleted);
@@ -59,3 +69,4 @@ export async function DELETE(request) {
     return new Response('Erro ao deletar registro', { status: 500 });
   }
 }
+
