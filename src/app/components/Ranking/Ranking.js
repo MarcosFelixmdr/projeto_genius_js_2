@@ -1,17 +1,32 @@
 'use client';
 
+import { get } from 'http';
 import { useState, useEffect } from 'react';
 
 export default function Ranking({ onBackToMenu }) {
   const [rankings, setRankings] = useState([]);
 
   useEffect(() => {
-    const savedRankings = JSON.parse(localStorage.getItem('geniusRankings') || '[]');
-    setRankings(savedRankings);
+    getRanking();
+
+    // Requisicao do tipo GET (all) para o banco de dados com order by points desc limit 10
   }, []);
+
+  const getRanking = async () => {
+    await fetch('/api/registers')
+      .then(response => response.json())
+      .then(data => {
+        const sortedRankings = data.sort((a, b) => b.points - a.points).slice(0, 10);
+        setRankings(sortedRankings);
+      })
+      .catch(error => console.error('Erro ao buscar rankings:', error));
+  }
 
   const clearRankings = () => {
     if (confirm('Tem certeza que deseja limpar todo o ranking?')) {
+
+      // Requisicao para o banco de dados do tipo delete all
+
       localStorage.removeItem('geniusRankings');
       setRankings([]);
     }
