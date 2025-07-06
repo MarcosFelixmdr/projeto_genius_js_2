@@ -6,8 +6,8 @@ const prisma = new PrismaClient();
 
 export async function GET() {
   try {
-    const registers = await prisma.registers.findMany({
-      orderBy: { id: 'asc' },
+    const registers = await prisma.register.findMany({
+      orderBy: { points: 'desc' },
     });
     return Response.json(registers);
   } catch (error) {
@@ -19,13 +19,19 @@ export async function GET() {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, points } = body;
+    console.log('BODY RECEBIDO:', body); // 👈 Adicione isso para debug
+    const { name, points, mode } = body;
 
-    const created = await prisma.registers.create({
-      data: { name, points },
+    if (!name || points === undefined || !mode) {
+      console.error('Dados incompletos:', { name, points, mode });
+      return new Response('Dados incompletos', { status: 400 });
+    }
+
+    const created = await prisma.register.create({
+      data: { name, points, mode, date: new Date() }, // <-- salva data automaticamente
     });
 
-    
+    console.log('REGISTRO CRIADO:', created); // 👈 Debug do resultado
 
     return Response.json(created);
   } catch (error) {
@@ -43,8 +49,8 @@ export async function DELETE(request) {
       return new Response('ID inválido', { status: 400 });
     }
 
-    const deleted = await prisma.registers.delete({
-      where: { id },
+    const deleted = await prisma.register.delete({
+      where: { id, points },
     });
 
     return Response.json(deleted);

@@ -7,20 +7,28 @@ export default function Ranking({ onBackToMenu }) {
   const [rankings, setRankings] = useState([]);
 
   useEffect(() => {
-    getRanking();
+  getRanking();
 
     // Requisicao do tipo GET (all) para o banco de dados com order by points desc limit 10
   }, []);
 
   const getRanking = async () => {
-    await fetch('/api/registers')
-      .then(response => response.json())
-      .then(data => {
-        const sortedRankings = data.sort((a, b) => b.points - a.points).slice(0, 10);
-        setRankings(sortedRankings);
-      })
-      .catch(error => console.error('Erro ao buscar rankings:', error));
+  try {
+    const response = await fetch('/api/registers');
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
+    }
+
+    const data = await response.json();
+    const sortedRankings = data.sort((a, b) => b.points - a.points).slice(0, 10);
+
+    setRankings(sortedRankings);
+  } catch (error) {
+    console.error('Erro ao buscar rankings:', error.message);
   }
+};
 
   const clearRankings = () => {
     if (confirm('Tem certeza que deseja limpar todo o ranking?')) {
@@ -61,10 +69,18 @@ export default function Ranking({ onBackToMenu }) {
                 <div key={index} className={`ranking-item ${index < 3 ? `top-${index + 1}` : ''}`}>
                   <span className="position">{index + 1}</span>
                   <span className="name">{entry.name}</span>
-                  <span className="score">{entry.score}</span>
+                  <span className="score">{entry.points}</span>
                   <span className="mode">{entry.mode}</span>
-                  <span className="date">{entry.date}</span>
-                </div>
+                  <span className="date">
+                  {new Date(entry.date).toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+                  </div>
               ))}
             </div>
           )}

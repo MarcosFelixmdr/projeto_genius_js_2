@@ -13,8 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Registers{
-  id  Int @id @default(autoincrement())
-  name  String
-  points  Int
+model Register {
+  id     Int      @id @default(autoincrement())
+  name   String
+  points Int   
+  mode   String
+  date   DateTime @default(now()) // <-- salva data automaticamente
 }
+

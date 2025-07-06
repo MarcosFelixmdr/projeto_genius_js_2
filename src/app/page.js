@@ -30,15 +30,13 @@ export default function Home() {
     // rankings.sort((a, b) => b.score - a.score);
     // localStorage.setItem('geniusRankings', JSON.stringify(rankings.slice(0, 10)));
     
-    // setGameState('ranking');
+    setGameState('ranking');
 
     await fetch('/api/registers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: playerName, points: score }),
+      body: JSON.stringify({ name: playerName, points: score, mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer' }), //mode
     });
-    
-
     // Requisicao do tipo POST para o banco de dados com os dados do jogador(points e name)
   };
 
