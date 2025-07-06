@@ -625,3 +625,27 @@ body {
     font-size: 0.9rem;
   }
 }
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px; /* Espaçamento nas bordas */
+  box-sizing: border-box;
+}
+
+.menu-container, .ranking-container {
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 12px; /* Espaçamento menor em telas pequenas */
+  }
+  .menu-container, .ranking-container {
+    width: 100%;
+    max-width: 98vw;
+    margin: 0 auto;
+  }
+}
