@@ -49,7 +49,7 @@ export default function GameLogic(config, onEndGame) {
     setIsShowingSequence(false);
   };
 
-  const startGame = () => {
+  const startGame = () => { // Início do jogo multiplayer
     setGameStarted(true);
     if (config.isSinglePlayer) {
       nextRound();
@@ -74,7 +74,7 @@ export default function GameLogic(config, onEndGame) {
     }, 2000);
   };
 
-  const addColorAndNextPlayer = () => {
+  const addColorAndNextPlayer = () => { // Multiplayer Controle de jogadores ativos e troca de jogador
     const newColor = cores[Math.floor(Math.random() * cores.length)];
     const newSequence = [...sequence, newColor];
     setSequence(newSequence);
@@ -138,7 +138,7 @@ export default function GameLogic(config, onEndGame) {
   };
 
   // Getters
-  const getCurrentPlayerName = () => {
+  const getCurrentPlayerName = () => { // Getters para multiplayer
     if (config.isSinglePlayer) {
       return config.players[0];
     }
