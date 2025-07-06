@@ -4,6 +4,7 @@ import Menu from './components/Menus/Menu';
 import Game from './components/Game/Game';
 import Ranking from './components/Ranking/Ranking';
 import './globals.css';
+import { avatarList } from './components/Menus/AvatarSelector';
 
 export default function Home() {
   const [gameState, setGameState] = useState('menu'); // menu, game, ranking
@@ -35,7 +36,7 @@ export default function Home() {
     await fetch('/api/registers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: playerName, points: score, mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer' }), //mode
+      body: JSON.stringify({ avatar: avatarList, name: playerName, points: score, mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer' }), //mode
     });
     // Requisicao do tipo POST para o banco de dados com os dados do jogador(points e name)
   };
