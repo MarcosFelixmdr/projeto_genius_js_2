@@ -1,4 +1,18 @@
+//O que faz?
+//Traz ferramentas do React que permitem armazenar referências (useRef) e executar código
+//em momentos específicos do ciclo de vida do componente (useEffect).
+
+//Por quê?
+//Porque a lógica que você está construindo (manipulação de áudio) depende do acesso ao navegador
+//e precisa ser inicializada apenas uma vez.
+
 import { useRef, useEffect } from 'react';
+
+//O que faz?
+//Define as frequências sonoras associadas a cada cor.
+
+//Por quê?
+//Isso permite que, ao informar uma cor (como "red"), o sistema saiba qual nota tocar.
 
 const frequencias = {
   green: 164.81,
@@ -7,6 +21,8 @@ const frequencias = {
   blue: 329.63,
 };
 
+//Essa função é um hook customizado do React, ou seja, uma função que usa outros hooks
+//(como useRef e useEffect) para encapsular lógica reutilizável — neste caso, relacionada a áudio.
 export default function useAudio() {
   const audioContextRef = useRef(null);
 
@@ -15,6 +31,7 @@ export default function useAudio() {
       audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
     }
   }, []);
+
 
   const playSound = (color, duration = 0.3) => {
     if (!audioContextRef.current) return;

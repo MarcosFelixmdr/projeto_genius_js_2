@@ -1,3 +1,4 @@
+//declarando variaveis
 export default function GameMessages({
   showEliminatedMessage,
   eliminatedMessage,
