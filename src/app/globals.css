@@ -502,12 +502,12 @@ body {
   overflow-x: auto;
 }
 
-.ranking-item {
+.ranking-item { /*espaçamento entre os itens*/
   display: grid;
   grid-template-columns: 30px 40px 1fr 60px 80px 90px;
   font-size: 0.85rem;
   padding: 8px 2px;
-  gap: 50px;
+  gap: 40px;
   padding: 15px;
   align-items: center;
 }
