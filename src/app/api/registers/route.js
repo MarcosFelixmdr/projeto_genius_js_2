@@ -21,10 +21,10 @@ export async function POST(request) {
   try {
     const body = await request.json();
     console.log('BODY RECEBIDO:', body); // 👈 Adicione isso para debug
-    const { name, points, mode } = body;
+    const { name, points, mode, avatarList } = body;
 
     if (!name || points === undefined || !mode) {
-      console.error('Dados incompletos:', { name, points, mode });
+      console.error('Dados incompletos:', { name, points, mode, avatarList });
       return new Response('Dados incompletos', { status: 400 });
     }
 

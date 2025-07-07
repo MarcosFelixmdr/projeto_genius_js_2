@@ -19,5 +19,5 @@ model Register {
   points Int   
   mode   String
   date   DateTime @default(now())
-  avatar String @default("1.png")
+  avatarList String
 }

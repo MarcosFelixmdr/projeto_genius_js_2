@@ -499,12 +499,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  overflow-x: auto;
 }
 
 .ranking-item {
   display: grid;
-  grid-template-columns: 50px 50px 1fr 100px 120px 100px;
-  gap: 15px;
+  grid-template-columns: 30px 40px 1fr 60px 80px 90px;
+  font-size: 0.85rem;
+  padding: 8px 2px;
+  gap: 50px;
   padding: 15px;
   align-items: center;
 }

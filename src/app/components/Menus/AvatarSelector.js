@@ -1,6 +1,5 @@
     // components/AvatarSelector.js
     import { useState } from "react";
-
     // MODELO: coloque seus arquivos de avatar aqui
     export const avatarList = [
     { id: "1", src: "/avatars/1.png", alt: "Avatar 1" },
@@ -24,15 +23,13 @@
     // ...adicione mais conforme necessário
     ];
 
-    const defaultAvatar = avatarList[0];
-
     export default function AvatarSelector({ selected, onSelect }) {
     const [open, setOpen] = useState(false);
 
     return (
         <div className="avatar-selector">
         <img
-            src={selected?.src || "/avatars/default.png"}
+            src={selected?.src || "/avatars/1.png"}
             alt={selected?.alt || "Avatar"}
             className="avatar-thumb"
             onClick={() => setOpen(true)}
