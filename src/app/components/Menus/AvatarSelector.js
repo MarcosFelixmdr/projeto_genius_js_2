@@ -20,6 +20,9 @@ import { useState } from "react";
     { id: "17", src: "/avatars/17.png", alt: "Avatar 17" },
     { id: "18", src: "/avatars/18.png", alt: "Avatar 18" },
     { id: "19", src: "/avatars/19.png", alt: "Avatar 19" },
+    { id: "20", src: "/avatars/20.png", alt: "Avatar 20" },
+    { id: "21", src: "/avatars/21.png", alt: "Avatar 21" },
+    { id: "22", src: "/avatars/22.png", alt: "Avatar 22" },
     // ...adicione mais conforme necessário
     ];
 
