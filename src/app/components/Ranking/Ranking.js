@@ -71,8 +71,8 @@ export default function Ranking({ onBackToMenu }) {
                   <span className="position">{index + 1}</span>
                   <span className="avatar">
                     <img
-                      src={entry.avatar ? `/avatars/${entry.avatar}` : '/avatars/1.png'}
-                      alt={`${entry.avatar}`}
+                      src={entry.avatar ? `/avatars/${entry.avatar}.png` : '/avatars/1.png'} // Fallback para avatar 1
+                      alt={`Avatar ${entry.avatar}`}
                       style={{
                         width: '40px',
                         height: '40px',

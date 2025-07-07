@@ -21,15 +21,14 @@ export async function POST(request) {
   try {
     const body = await request.json();
     console.log('BODY RECEBIDO:', body); // 👈 Adicione isso para debug
-    const { name, points, mode, avatarList } = body;
+    const { name, points, mode, avatar } = body;
 
     if (!name || points === undefined || !mode) {
-      console.error('Dados incompletos:', { name, points, mode, avatarList });
       return new Response('Dados incompletos', { status: 400 });
     }
 
     const created = await prisma.register.create({
-      data: { avatarList, name, points, mode, date: new Date() }, // <-- salva data automaticamente
+      data: { avatar: avatar || '1', name, points, mode, date: new Date() }, // <-- salva data automaticamente
     });
 
     await prisma.$executeRaw`

@@ -45,7 +45,7 @@
                     key={avatar.id}
                     src={avatar.src}
                     alt={avatar.alt}
-                    className={`avatar-option${selected?.id === avatar.id ? " selected" : ""}`}
+                    className={`avatar-option${selected?.id === avatar.id ? "selected" : ""}`}
                     onClick={() => {
                         onSelect(avatar);
                         setOpen(false);

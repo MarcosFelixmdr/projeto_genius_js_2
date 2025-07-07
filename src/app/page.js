@@ -4,9 +4,10 @@ import Menu from './components/Menus/Menu';
 import Game from './components/Game/Game';
 import Ranking from './components/Ranking/Ranking';
 import './globals.css';
-import { avatarList } from './components/Menus/AvatarSelector';
+import AvatarSelector, { avatarList } from './components/Menus/AvatarSelector';
 
 export default function Home() {
+  const [selectedAvatar, setSelectedAvatar] = useState(avatarList[0]);
   const [gameState, setGameState] = useState('menu'); // menu, game, ranking
   const [gameConfig, setGameConfig] = useState({
     players: [],
@@ -36,7 +37,7 @@ export default function Home() {
     await fetch('/api/registers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ avatar: avatarList, name: playerName, points: score, mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer' }), //mode
+      body: JSON.stringify({ avatar: selectedAvatar?.id || '1', name: playerName, points: score, mode: gameConfig.isSinglePlayer ? 'Single Player' : 'Multiplayer' }), //mode
     });
     // Requisicao do tipo POST para o banco de dados com os dados do jogador(points e name)
   };
@@ -47,7 +48,12 @@ export default function Home() {
 
   return (
     <div className="app">
-      {gameState === 'menu' && <Menu onStartGame={startGame} onShowRanking={() => setGameState('ranking')} />}
+      {gameState === 'menu' && <Menu onStartGame={startGame} onShowRanking={() => setGameState('ranking')} 
+        avatarSelector={
+          <AvatarSelector 
+            selected={selectedAvatar} 
+            onSelect={setSelectedAvatar} />}
+        />}
       {gameState === 'game' && <Game config={gameConfig} onEndGame={endGame} onBackToMenu={goToMenu} />}
       {gameState === 'ranking' && <Ranking onBackToMenu={goToMenu} />}
     </div>
