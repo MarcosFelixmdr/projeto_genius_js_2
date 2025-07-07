@@ -18,7 +18,6 @@ model Register {
   name   String
   points Int   
   mode   String
-  date   DateTime @default(now()) // <-- salva data automaticamente
-  avatar String @default("/avatars/default.png")
+  date   DateTime @default(now())
+  avatar String @default("1.png")
 }
-

@@ -59,6 +59,7 @@ export default function Ranking({ onBackToMenu }) {
             <div className="ranking-list">
               <div className="ranking-item header">
                 <span className="position">#</span>
+                <span className="avatar">Avatar</span>
                 <span className="name">Jogador</span>
                 <span className="score">Pontos</span>
                 <span className="mode">Modo</span>
@@ -68,19 +69,31 @@ export default function Ranking({ onBackToMenu }) {
               {rankings.map((entry, index) => (
                 <div key={index} className={`ranking-item ${index < 3 ? `top-${index + 1}` : ''}`}>
                   <span className="position">{index + 1}</span>
+                  <span className="avatar">
+                    <img
+                      src={entry.avatar ? `/avatars/${entry.avatar}` : '/avatars/1.png'}
+                      alt={`${entry.avatar}`}
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        objectFit: 'cover',
+                        borderRadius: '50%'  // se quiser circular
+                      }}
+                    />
+                  </span>
                   <span className="name">{entry.name}</span>
                   <span className="score">{entry.points}</span>
                   <span className="mode">{entry.mode}</span>
                   <span className="date">
-                  {new Date(entry.date).toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                </span>
-                  </div>
+                    {new Date(entry.date).toLocaleDateString('pt-BR', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </span>
+                </div>
               ))}
             </div>
           )}

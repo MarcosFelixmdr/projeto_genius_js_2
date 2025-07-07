@@ -29,7 +29,7 @@ export async function POST(request) {
     }
 
     const created = await prisma.register.create({
-      data: { name, points, mode, date: new Date() }, // <-- salva data automaticamente
+      data: { avatarList, name, points, mode, date: new Date() }, // <-- salva data automaticamente
     });
 
     await prisma.$executeRaw`

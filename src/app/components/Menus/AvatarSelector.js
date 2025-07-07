@@ -18,6 +18,9 @@
     { id: "13", src: "/avatars/13.png", alt: "Avatar 13" },
     { id: "14", src: "/avatars/14.png", alt: "Avatar 14" },
     { id: "15", src: "/avatars/15.png", alt: "Avatar 15" },
+    { id: "16", src: "/avatars/16.png", alt: "Avatar 16" },
+    { id: "17", src: "/avatars/17.png", alt: "Avatar 17" },
+    { id: "18", src: "/avatars/18.png", alt: "Avatar 18" },
     // ...adicione mais conforme necessário
     ];
 

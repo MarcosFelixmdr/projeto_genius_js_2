@@ -503,12 +503,10 @@ body {
 
 .ranking-item {
   display: grid;
-  grid-template-columns: 50px 1fr 100px 120px 100px;
+  grid-template-columns: 50px 50px 1fr 100px 120px 100px;
   gap: 15px;
   padding: 15px;
   align-items: center;
-  border-radius: 8px;
-  transition: all 0.3s ease;
 }
 
 .ranking-item.header {
