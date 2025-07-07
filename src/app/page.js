@@ -46,6 +46,10 @@ export default function Home() {
     setGameState('menu');
   };
 
+  useEffect(() => {
+    console.log('Avatar atualizado:', selectedAvatar);
+  }, [selectedAvatar]);
+
   return (
     <div className="app">
       {gameState === 'menu' && <Menu onStartGame={startGame} onShowRanking={() => setGameState('ranking')} 

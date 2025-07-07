@@ -1,5 +1,4 @@
-    // components/AvatarSelector.js
-    import { useState } from "react";
+import { useState } from "react";
     // MODELO: coloque seus arquivos de avatar aqui
     export const avatarList = [
     { id: "1", src: "/avatars/1.png", alt: "Avatar 1" },
@@ -20,6 +19,7 @@
     { id: "16", src: "/avatars/16.png", alt: "Avatar 16" },
     { id: "17", src: "/avatars/17.png", alt: "Avatar 17" },
     { id: "18", src: "/avatars/18.png", alt: "Avatar 18" },
+    { id: "19", src: "/avatars/19.png", alt: "Avatar 19" },
     // ...adicione mais conforme necessário
     ];
 
